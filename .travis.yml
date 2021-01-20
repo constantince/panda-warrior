@@ -11,6 +11,8 @@ node_js: stable
 
 install:
   - npm install -D
+  
 
 scripts:
   - npm run cover
+  - npm run compile
