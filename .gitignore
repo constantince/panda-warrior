@@ -1,2 +1,6 @@
-node_modules
-.vscode
+node_modules/
+.vscode/
+.nyc_output/
+coverage/
+*.js
+*.d.ts

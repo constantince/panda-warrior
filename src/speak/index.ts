@@ -1,3 +1,3 @@
 export default function (words: string) {
-    return words;
+  return words;
 }

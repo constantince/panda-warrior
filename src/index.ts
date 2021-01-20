@@ -1,17 +1,27 @@
+import Speak from './speak';
+import Jump from './jump';
+import Sing from './sing';
+
 class PandaWarrior {
   constructor() {
     console.log('hello world');
   }
 
   armour() {
-    return 'dinosou';
+    return true;
   }
+
+  speak = Speak;
+
+  jump = Jump;
+
+  sing = Sing;
 
   weapon() {
     return 'bamboo';
   }
 
-  fuly() {
+  furColor() {
     return 'black-and-white';
   }
 

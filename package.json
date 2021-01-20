@@ -3,19 +3,22 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "files": ["src"],
   "scripts": {
     "start": "nodemon index.ts",
-    "compile": "tsc",
+    "compile": "tsc -w",
     "check": "eslint . --ext .ts",
-    "prettier-format": "prettier --config .prettierrc 'src/*.ts' --write",
+    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
     "prettier-watch": "onchange 'src/*.ts' -- prettier --write {{changed}}",
-    "test": "mocha",
+    "test": "tsc && mocha",
     "cover": "nyc mocha"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-angular": "^11.0.0",
     "@istanbuljs/nyc-config-typescript": "^1.0.1",
     "@types/chai": "^4.2.14",
     "@types/mocha": "^8.2.0",
@@ -31,6 +34,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "husky": "^4.3.8",
     "istanbul": "^0.4.5",
+    "lint-staged": "^10.5.3",
     "mocha": "^8.2.1",
     "nodemon": "^2.0.7",
     "nyc": "^15.1.0",
@@ -53,9 +57,16 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run check"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
     }
-  }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "npm run check",
+      "git add"
+    ]
+  },
   "all": true,
   "check-coverage": true
 }
