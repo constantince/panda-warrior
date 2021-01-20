@@ -15,4 +15,3 @@ install:
 
 scripts:
   - npm run cover
-  - npm run compile

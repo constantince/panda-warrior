@@ -11,7 +11,7 @@
     "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
     "prettier-watch": "onchange 'src/*.ts' -- prettier --write {{changed}}",
     "test": "tsc && mocha",
-    "cover": "nyc mocha"
+    "cover": "tsc && nyc mocha"
   },
   "keywords": [],
   "author": "",
