@@ -18,6 +18,6 @@ scripts:
 
 deploy:
   provider: npm
-  email: "alberteinstein007@126.com"
+  email: alberteinstein007@126.com
   api_key: "$NPM_TOKEN"
   skip_cleanup: true
