@@ -15,3 +15,9 @@ install:
 
 scripts:
   - npm run cover
+
+deploy:
+  provider: npm
+  email: "alberteinstein007@126.com"
+  api_key: "$NPM_TOKEN"
+  skip_cleanup: true
