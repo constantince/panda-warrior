@@ -1,17 +1,20 @@
 {
   "name": "panda-warrior",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "",
-  "main": "index.js",
-  "files": ["src"],
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "start": "nodemon index.ts",
-    "compile": "tsc -w",
+    "compile": "rollup -c",
+    "compile:all": "tsc --outDir ./dist --target ES6 hello.ts",
     "check": "eslint . --ext .ts",
     "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
     "prettier-watch": "onchange 'src/*.ts' -- prettier --write {{changed}}",
-    "test": "tsc && mocha",
-    "cover": "tsc && nyc mocha"
+    "test": "npm run compile && mocha",
+    "cover": "npm run compile && nyc mocha"
   },
   "keywords": [],
   "author": "",
@@ -40,6 +43,9 @@
     "nyc": "^15.1.0",
     "onchange": "^7.1.0",
     "prettier": "2.2.1",
+    "rollup": "^2.37.1",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-typescript2": "^0.29.0",
     "source-map-support": "^0.5.19",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.3"
